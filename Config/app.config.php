@@ -5,8 +5,9 @@ declare(strict_types=1);
 
 return [
     'general' => [
-        'name'        => "Neo_Admin",
-        'description' => "Votre projet NeoPHP",
+        'name'          => "NeoAdmin",
+        'description'   => "Administration NeoPHP",
+        'version'       => "1.0.0"
     ],
 
     'environment' => "dev",
@@ -18,11 +19,10 @@ return [
     ],
 
     'translation' => [
-        'enabled'           => true,
+        'enabled'           => false,
         'default_locale'    => 'fr',
         'available_locales' => [
             'fr' => 'Français',
-            'en' => 'Anglais',
         ],
     ],
 
