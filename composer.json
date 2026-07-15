@@ -1,0 +1,7 @@
+{
+    "name": "neo_admin/app",
+    "description": "Project Neo_Admin - NeoPHP",
+    "type": "library",
+    "minimum-stability": "dev",
+    "require": {}
+}

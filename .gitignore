@@ -1,0 +1,10 @@
+# Sensitive config
+/Config/database.config.php
+/Config/api.config.php
+
+# Storage
+/Storage/
+
+# OS
+.DS_Store
+Thumbs.db

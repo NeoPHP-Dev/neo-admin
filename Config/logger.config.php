@@ -1,0 +1,30 @@
+<?php
+declare(strict_types=1);
+
+// ./src/Neo_Admin/Config/logger.config.php
+
+return [
+    'enabled' => false,
+
+    'channels' => [
+        'framework' => [
+            'enabled'   => false,
+            'name'      => 'framework',
+            'extension' => 'log',
+        ],
+    ],
+
+    'rotation' => [
+        'enabled'       => true,
+        'type'          => 'daily',
+        'max_file_size' => 5 * 1024 * 1024,
+    ],
+
+    'archive' => [
+        'enabled'   => true,
+        'extension' => 'zip',
+    ],
+
+    'log_format' => "[{%datetime%}][{%level_name%}][{%level_code%}] [{%origin%}] {%message%} {%context%}",
+    'min_level'  => 'DEBUG',
+];
