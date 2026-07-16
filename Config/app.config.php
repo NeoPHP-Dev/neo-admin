@@ -27,10 +27,10 @@ return [
     ],
 
     'auth' => [
-        'enabled'    => false,
-        'model'      => '',
-        'identifier' => '',
-        'password'   => '',
+        'enabled'    => true,
+        'model'      => Neo\Src\Neo_Admin\Database\Model\Administrator::class,
+        'identifier' => 'username',
+        'password'   => 'password',
         'guard'      => 'session',
         'role'       => [
             'model'       => '',
