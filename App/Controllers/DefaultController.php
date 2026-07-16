@@ -7,7 +7,6 @@ use Neo\Core\Controller\AbstractController;
 use Neo\Core\Http\Response\RedirectResponse;
 use Neo\Core\Routing\Attribute\MainRoute;
 use Neo\Core\Routing\Attribute\Route;
-use Neo\Core\Http\Response\Response;
 
 #[MainRoute(path: '/', name: 'default')]
 final class DefaultController extends AbstractController
