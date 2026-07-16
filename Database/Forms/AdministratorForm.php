@@ -3,12 +3,15 @@ declare(strict_types=1);
 
 namespace Neo\Src\Neo_Admin\Database\Forms;
 
+use Neo\Core\Database\Form\Type\PasswordType;
+use Neo\Core\Database\Form\Type\TextType;
 use Neo\Core\DI\Container;
 use Neo\Core\Database\Builder\FormBuilder;
 use Neo\Core\Database\Form\Form;
 use Neo\Core\Database\ORM\Model\AbstractModel;
 use Neo\Core\Http\Request;
 use Neo\Core\Database\Form\Type\SubmitType;
+use Neo\Core\Validator\Assert\NotBlank;
 use Neo\Src\Neo_Admin\Database\Model\Administrator;
 use Neo\Core\Translation\TranslationManager;
 
@@ -39,6 +42,43 @@ class AdministratorForm
         $form->setData($administrator ?? $this->administrator);
         $form->populateData();
         
+        return $form;
+    }
+
+    public function buildLogin(): Form
+    {
+        $form = new FormBuilder($this->administrator)
+            ->auto(fieldTypes: [
+                'username' => [
+                    TextType::class,
+                    [
+                        'label' => 'Username'
+                    ]
+                ],
+                'password' => [
+                    PasswordType::class,
+                    [
+                        'label' => 'Password'
+                    ]
+                ]
+            ])
+            ->add('submit', SubmitType::class, ['label' => 'Submit'])
+            ->generate();
+
+        $form->addCsrfField();
+
+        $form->addConstraint('username', new NotBlank(
+            message: 'Vous devez indiquer le nom d\'utilisateur'
+        ));
+
+        $form->addConstraint('password', new NotBlank(
+            message: 'Vous devez indiquer le mot de passe'
+        ));
+
+        $form->handleRequest($this->request);
+        $form->setData($this->administrator);
+        $form->populateData();
+
         return $form;
     }
 }
