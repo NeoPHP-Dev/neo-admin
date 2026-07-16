@@ -62,7 +62,13 @@ class AdministratorForm
                     ]
                 ]
             ])
-            ->add('submit', SubmitType::class, ['label' => 'Submit'])
+            ->add(
+                'submit',
+                SubmitType::class,
+                [
+                    'label' => $this->translationManager->translate('Connexion', [], 'auth')
+                ]
+            )
             ->generate();
 
         $form->addCsrfField();
