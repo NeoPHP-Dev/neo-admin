@@ -52,13 +52,13 @@ class AdministratorForm
                 'username' => [
                     TextType::class,
                     [
-                        'label' => 'Username'
+                        'label' => $this->translationManager->translate('Nom d\'utilisateur', [], 'auth')
                     ]
                 ],
                 'password' => [
                     PasswordType::class,
                     [
-                        'label' => 'Password'
+                        'label' => $this->translationManager->translate('Mot de passe', [], 'auth')
                     ]
                 ]
             ])
@@ -68,11 +68,11 @@ class AdministratorForm
         $form->addCsrfField();
 
         $form->addConstraint('username', new NotBlank(
-            message: 'Vous devez indiquer le nom d\'utilisateur'
+            message: $this->translationManager->translate('Vous devez indiquer votre nom d\'utilisateur', [], 'auth')
         ));
 
         $form->addConstraint('password', new NotBlank(
-            message: 'Vous devez indiquer le mot de passe'
+            message: $this->translationManager->translate('Vous devez indiquer votre mot de passe', [], 'auth')
         ));
 
         $form->handleRequest($this->request);
