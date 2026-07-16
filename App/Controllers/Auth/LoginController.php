@@ -16,10 +16,8 @@ use Neo\Core\Security\Middleware\Default\GuestMiddleware;
 final class LoginController extends AbstractController
 {
     #[Route(path: '/', name: 'index', methods: ['GET'])]
-    public function index(): JsonResponse
+    public function index(): Response
     {
-        return $this->json([
-            'data' => 'Guest login'
-        ]);
+        return $this->render('pages/auth/login/index.html.twig');
     }
 }
