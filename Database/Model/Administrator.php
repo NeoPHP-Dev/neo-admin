@@ -16,6 +16,12 @@ class Administrator extends AbstractModel
 
     public string $password;
 
+    public ?string $avatar = null;
+
+    public ?string $firstname = null;
+
+    public ?string $lastname = null;
+
     public ?\DateTime $created_at = null;
 
     public ?\DateTime $updated_at = null;
@@ -50,6 +56,36 @@ class Administrator extends AbstractModel
     public function setPassword(string $password): static
     {
         return $this->setAttribute('password', $password);
+    }
+
+    public function getAvatar(): ?string
+    {
+        return $this->avatar;
+    }
+
+    public function setAvatar(?string $avatar): static
+    {
+        return $this->setAttribute('avatar', $avatar);
+    }
+
+    public function getFirstname(): ?string
+    {
+        return $this->firstname;
+    }
+
+    public function setFirstname(?string $firstname): static
+    {
+        return $this->setAttribute('firstname', $firstname);
+    }
+
+    public function getLastname(): ?string
+    {
+        return $this->lastname;
+    }
+
+    public function setLastname(?string $lastname): static
+    {
+        return $this->setAttribute('lastname', $lastname);
     }
 
     public function getCreatedAt(): ?\DateTime
