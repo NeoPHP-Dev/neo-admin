@@ -19,7 +19,16 @@ final class LogoutController extends AbstractController
     public function index(): RedirectResponse
     {
         if ($this->auth()->check()) {
+            $admin = $this->auth()->user();
             $this->auth()->logout();
+
+            $this->getLogger()->channel('security')->info(
+                sprintf(
+                    '%s was successfull logged out at %s',
+                    $admin->getUsername(),
+                    date('d-m-Y H:i:s')
+                )
+            );
         }
         return $this->redirectToRoute('default.index');
     }

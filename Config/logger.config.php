@@ -4,7 +4,7 @@ declare(strict_types=1);
 // ./src/Neo_Admin/Config/logger.config.php
 
 return [
-    'enabled' => false,
+    'enabled' => true,
 
     'channels' => [
         'framework' => [
@@ -12,16 +12,21 @@ return [
             'name'      => 'framework',
             'extension' => 'log',
         ],
+        'security' => [
+            'enabled'   => true,
+            'name'      => 'security',
+            'extension' => 'log'
+        ]
     ],
 
     'rotation' => [
-        'enabled'       => true,
+        'enabled'       => false,
         'type'          => 'daily',
         'max_file_size' => 5 * 1024 * 1024,
     ],
 
     'archive' => [
-        'enabled'   => true,
+        'enabled'   => false,
         'extension' => 'zip',
     ],
 
