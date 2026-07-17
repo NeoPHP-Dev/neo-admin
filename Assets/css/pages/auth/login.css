@@ -1,4 +1,4 @@
-@layer base {
+@layer components {
     .login-page {
         @apply w-full h-dvh flex items-center justify-center bg-gray-50 px-4;
     }
@@ -21,52 +21,6 @@
 
     .login-subtitle {
         @apply text-sm text-gray-500 text-center;
-    }
-
-    .form-errors {
-        @apply flex flex-col gap-1 mb-6 px-4 py-3 rounded-lg bg-red-50 border border-red-200;
-    }
-
-    .form-errors .error {
-        @apply text-sm text-red-600;
-    }
-
-    .login-field {
-        @apply flex flex-col gap-1.5 mb-5;
-    }
-
-    .login-field label {
-        @apply text-xs font-medium text-gray-700;
-    }
-
-    .login-input-wrap {
-        @apply relative flex items-center;
-    }
-
-    .login-icon {
-        @apply absolute left-3 w-4 h-4 text-gray-400 pointer-events-none;
-    }
-
-    .login-input-wrap input {
-        @apply w-full pl-10 pr-10 py-2.5 text-sm text-gray-900 bg-white border border-gray-300 rounded-lg
-        placeholder:text-gray-400
-        focus:outline-none focus:ring-2 focus:ring-black focus:border-black
-        transition;
-    }
-
-    .login-toggle-password {
-        @apply absolute right-3 text-gray-400 hover:text-gray-600 transition cursor-pointer bg-transparent border-0;
-    }
-
-    .login-field .error {
-        @apply block text-xs text-red-600 mt-1;
-    }
-
-    .login-submit {
-        @apply w-full flex items-center justify-center gap-2 bg-black text-white text-sm font-medium
-        py-2.5 rounded-lg mt-2
-        hover:bg-gray-800 active:bg-gray-900
-        transition cursor-pointer;
     }
 
     .login-footer {

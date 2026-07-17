@@ -1,0 +1,57 @@
+{% macro open(form, params = {}) %}
+    {{ form_start(form, params) }}
+    {{ form_csrf(form) }}
+{% endmacro %}
+
+{% macro close() %}
+    {{ form_end() }}
+{% endmacro %}
+
+{% macro field(form, name, options = {}) %}
+    {% set f = form_field(form, name) %}
+    {% if f is not null %}
+        <div class="form-field{{ options.wrapper_class is defined ? ' ' ~ options.wrapper_class : '' }}">
+            {% if options.label_visible|default(true) and f.label %}
+                {{ form_label(form, name) }}
+            {% endif %}
+
+            <div class="form-input-wrap{{ options.icon is not defined ? ' no-icon' : '' }}"{{ options.toggle_password|default(false) ? ' data-password-wrap' : '' }}>
+                {% if options.icon is defined %}
+                    <i data-lucide="{{ options.icon }}" class="form-icon"></i>
+                {% endif %}
+
+                {{ form_widget(form, name, options.widget|default({})) }}
+
+                {% if options.toggle_password|default(false) %}
+                    <button type="button" class="form-toggle-password" data-toggle-password>
+                        <i data-lucide="eye" class="w-4 h-4"></i>
+                    </button>
+                {% endif %}
+            </div>
+
+            {% for err in form_error(form, name) %}
+                <span class="error">{{ err }}</span>
+            {% endfor %}
+
+            {% if options.help is defined %}
+                <p class="form-help">{{ options.help }}</p>
+            {% endif %}
+        </div>
+    {% endif %}
+{% endmacro %}
+
+{% macro submit(form, options = {}) %}
+    {% set attr = options.attr|default({}) %}
+    {% set attr = attr|merge({class: attr.class is defined ? attr.class : 'form-submit'}) %}
+    {{ form_widget(form, 'submit', {attr: attr}) }}
+{% endmacro %}
+
+{% macro errors(form) %}
+    {% if form_errors(form) is not empty %}
+        <div class="form-errors">
+            {% for error in form_errors(form) %}
+                <span class="error">{{ error }}</span>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endmacro %}

@@ -1,0 +1,59 @@
+@layer components {
+    .form-field {
+        @apply flex flex-col gap-1.5 mb-5;
+    }
+
+    .form-field label {
+        @apply text-xs font-medium text-gray-700;
+    }
+
+    .form-input-wrap {
+        @apply relative flex items-center;
+    }
+
+    .form-icon {
+        @apply absolute left-3 w-4 h-4 text-gray-400 pointer-events-none;
+    }
+
+    .form-input-wrap input,
+    .form-input-wrap select,
+    .form-input-wrap textarea {
+        @apply w-full pl-10 pr-10 py-2.5 text-sm text-gray-900 bg-white border border-gray-300 rounded-lg
+        placeholder:text-gray-400
+        focus:outline-none focus:ring-2 focus:ring-black focus:border-black
+        transition;
+    }
+
+    .form-input-wrap.no-icon input,
+    .form-input-wrap.no-icon select,
+    .form-input-wrap.no-icon textarea {
+        @apply pl-4;
+    }
+
+    .form-toggle-password {
+        @apply absolute right-3 text-gray-400 hover:text-gray-600 transition cursor-pointer bg-transparent border-0;
+    }
+
+    .form-field .error {
+        @apply block text-xs text-red-600 mt-1;
+    }
+
+    .form-errors {
+        @apply flex flex-col gap-1 mb-6 px-4 py-3 rounded-lg bg-red-50 border border-red-200;
+    }
+
+    .form-errors .error {
+        @apply text-sm text-red-600;
+    }
+
+    .form-submit {
+        @apply w-full flex items-center justify-center gap-2 bg-black text-white text-sm font-medium
+        py-2.5 rounded-lg mt-2
+        hover:bg-gray-800 active:bg-gray-900
+        transition cursor-pointer;
+    }
+
+    .form-help {
+        @apply text-xs text-gray-400 mt-1;
+    }
+}

@@ -1,9 +1,9 @@
 {# ./src/Neo_Admin/Templates/pages/auth/login/index.html.twig #}
 
 {% extends "layouts/base.layout.html.twig" %}
+{% import 'partials/macros/form.macro.html.twig' as Form %}
 
 {% block content %}
-
     <div class="login-page">
         <div class="login-card">
             <div class="login-header">
@@ -14,57 +14,21 @@
                     {{ app.name }}
                 </h1>
                 <p class="login-subtitle">
-                    {{ translate('Connectez-vous à :appName dès maintenant !', {appName: app.name}, 'login') }}
+                    {{ translate('Connectez-vous à l\'administration', [], 'login') }}
                 </p>
             </div>
 
-            {% if form_errors(loginForm) is not empty %}
-                <div class="form-errors">
-                    {% for error in form_errors(loginForm) %}
-                        <span class="error">
-                            {{ error }}
-                        </span>
-                    {% endfor %}
-                </div>
-            {% endif %}
+            {{ Form.errors(loginForm) }}
 
-            {{ form_start(loginForm) }}
-                {{ form_csrf(loginForm) }}
+            {{ Form.open(loginForm) }}
 
-                <div class="login-field">
-                    {{ form_label(loginForm, 'username') }}
-                    <div class="login-input-wrap">
-                        <i data-lucide="user" class="login-icon"></i>
-                        {{ form_widget(loginForm, 'username') }}
-                    </div>
-                    {% for error in form_error(loginForm, 'username') %}
-                        <span class="error">
-                            {{ error }}
-                        </span>
-                    {% endfor %}
-                </div>
+                {{ Form.field(loginForm, 'username', {icon: 'user'}) }}
+                {{ Form.field(loginForm, 'password', {icon: 'lock', toggle_password: true}) }}
+                {{ Form.submit(loginForm) }}
 
-                <div class="login-field">
-                    {{ form_label(loginForm, 'password') }}
-                    <div class="login-input-wrap" data-password-wrap>
-                        <i data-lucide="lock" class="login-icon"></i>
-                        {{ form_widget(loginForm, 'password') }}
-                        <button type="button" class="login-toggle-password" data-toggle-password>
-                            <i data-lucide="eye" class="w-4 h-4"></i>
-                        </button>
-                    </div>
-                    {% for error in form_error(loginForm, 'password') %}
-                        <span class="error">
-                            {{ error }}
-                        </span>
-                    {% endfor %}
-                </div>
+            {{ Form.close() }}
 
-                {{ form_widget(loginForm, 'submit', {label: 'Se connecter', attr: {class: 'login-submit'}}) }}
-
-            {{ form_end() }}
-
-            <p class="login-footer">{{ app.name }} &copy; {{ "now"|date("Y") }}</p>
+            <p class="login-footer">NeoPHP &copy; {{ "now"|date("Y") }}</p>
         </div>
     </div>
 
@@ -77,5 +41,4 @@
             });
         });
     </script>
-
 {% endblock %}
