@@ -1,0 +1,20 @@
+{# ./src/Neo_Admin/Templates/partials/templates/panel/aside.tpl.html.twig #}
+
+{% import 'partials/macros/icon.macro.html.twig' as Icon %}
+
+<div class="panel-brand">
+    {{ Icon.icon('shield-check', {w: 6, h: 6}) }}
+    <span class="panel-brand-name">NeoPHP Admin</span>
+</div>
+
+<nav class="panel-nav">
+    <a href="#" class="panel-nav-link">
+        {{ Icon.icon('layout-dashboard', {w: 5, h: 5}) }}
+        <span>Dashboard</span>
+    </a>
+
+    <a href="#" class="panel-nav-link">
+        {{ Icon.icon('settings', {w: 5, h: 5}) }}
+        <span>Préférences</span>
+    </a>
+</nav>

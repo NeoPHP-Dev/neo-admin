@@ -1,0 +1,16 @@
+{# ./src/Neo_Admin/Templates/partials/templates/panel/header.tpl.html.twig #}
+
+{% import 'partials/macros/icon.macro.html.twig' as Icon %}
+
+<div class="panel-header-title">
+    {% block pageTitle %}Dashboard{% endblock %}
+</div>
+
+<div class="panel-header-actions">
+    <form action="#" method="POST" class="panel-logout-form">
+        <button type="submit" class="panel-logout">
+            {{ Icon.icon('log-out', {w: 4, h: 4}) }}
+            Déconnexion
+        </button>
+    </form>
+</div>

@@ -1,0 +1,54 @@
+@layer components {
+    .panel-layout {
+        @apply w-full h-dvh flex overflow-hidden;
+    }
+
+    .panel-sidebar {
+        @apply w-64 shrink-0 h-dvh bg-white border-r border-gray-200 overflow-y-auto;
+    }
+
+    .panel-main {
+        @apply flex-1 flex flex-col h-dvh min-w-0;
+    }
+
+    .panel-header {
+        @apply shrink-0 h-16 flex items-center px-6 bg-white border-b border-gray-200;
+    }
+
+    .panel-content {
+        @apply flex-1 overflow-y-auto px-6 py-6;
+    }
+
+    .panel-brand {
+        @apply flex items-center gap-2 px-6 h-16 border-b border-gray-200;
+    }
+
+    .panel-brand-name {
+        @apply font-semibold text-gray-900;
+    }
+
+    .panel-nav {
+        @apply flex flex-col gap-1 p-3;
+    }
+
+    .panel-nav-link {
+        @apply flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-600
+        hover:bg-gray-100 hover:text-gray-900 transition;
+    }
+
+    .panel-nav-link.active {
+        @apply bg-gray-900 text-white hover:bg-gray-900 hover:text-white;
+    }
+
+    .panel-header-title {
+        @apply text-lg font-semibold text-gray-900;
+    }
+
+    .panel-header-actions {
+        @apply ml-auto flex items-center;
+    }
+
+    .panel-logout {
+        @apply flex items-center gap-2 text-sm text-gray-500 hover:text-red-600 transition cursor-pointer bg-transparent border-0;
+    }
+}

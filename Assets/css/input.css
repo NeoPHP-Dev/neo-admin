@@ -3,6 +3,7 @@
 @import "./components/form.css";
 
 @import "./pages/auth/login.css";
+@import "./pages/panel/panel.css";
 
 @layer base {
     html, body {

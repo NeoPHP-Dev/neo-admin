@@ -3,5 +3,19 @@
 {% extends "layouts/base.layout.html.twig" %}
 
 {% block content %}
-    {% block panelContent %}{% endblock %}
+    <div class="panel-layout">
+        <aside class="panel-sidebar">
+            {% include 'partials/templates/panel/aside.tpl.html.twig' %}
+        </aside>
+
+        <div class="panel-main">
+            <header class="panel-header">
+                {% include 'partials/templates/panel/header.tpl.html.twig' %}
+            </header>
+
+            <main class="panel-content">
+                {% block panelContent %}{% endblock %}
+            </main>
+        </div>
+    </div>
 {% endblock %}
