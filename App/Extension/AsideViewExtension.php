@@ -45,13 +45,19 @@ final class AsideViewExtension implements TwigExtensionInterface
             return null;
         }
 
-        $primaryKey = $user::getPrimaryKey();
-        $id = $user->$primaryKey;
-        $cacheKey = 'admin:profile:' . $id;
+        $cacheKey = 'admin:profile:' . $user->getId();
 
         $this->administrator = $this->cache->remember($cacheKey, self::TTL, fn() => [
-            'id' => $id,
-            'username' => $user->username,
+            'id' => $user->getId(),
+            'username' => $user->getUsername(),
+            'display_fullname' => $user->getFirstname() . ' ' . $user->getLastname(),
+            'avatar' => $user->getAvatar(),
+            'initials' => mb_strtoupper(
+                (
+                    mb_substr($user->getFirstname() ?? '', 0, 1) .
+                    mb_substr($user->getLastname() ?? '', 0, 1)
+                ) ?: mb_substr($user->getUsername(), 0, 1)
+            ),
             'role' => $user->role?->name ?? '--',
         ]);
 
