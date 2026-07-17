@@ -14,5 +14,11 @@ return [
     'Général' => 'General',
     'Outils' => 'Tools',
     'Paramètres' => 'Settings',
-    'Déconnexion' => 'Logout'
+    'Déconnexion' => 'Logout',
+    'NeoPHP' => 'NeoPHP',
+    'Administrateurs' => 'Administrateurs',
+    'Clients' => 'Clients',
+    'Projets' => 'Projets',
+    'Factures' => 'Factures',
+    'Rôles' => 'Rôles'
 ];

@@ -5,10 +5,3 @@
 <div class="panel-header-title">
     {% block pageTitle %}Dashboard{% endblock %}
 </div>
-
-<div class="panel-header-actions">
-    <a href="{{ path('auth.logout.index') }}" class="panel-logout">
-        {{ Icon.icon('log-out', {w: 4, h: 4}) }}
-        {{ translate('Déconnexion') }}
-    </a>
-</div>

@@ -6,21 +6,25 @@
     'general': {
         label: translate('Général'),
         links: [
-            { route: path('panel.dashboard.index'), icon: 'layout-dashboard', label: translate('Tableau de bord') },
+            { route: 'panel.dashboard.index', icon: 'layout-dashboard', label: translate('Tableau de bord') },
+            { route: null, icon: 'shield-user', label: translate('Administrateurs') },
+            { route: null, icon: 'shield', label: translate('Rôles') },
+            { route: null, icon: 'users', label: translate('Clients') },
+            { route: null, icon: 'briefcase-business', label: translate('Projets') },
+            { route: null, icon: 'file-text', label: translate('Factures') },
         ]
     },
     'tools': {
         label: translate('Outils'),
         links: [
-            { route: '#', icon: 'database', label: translate('NeoSQL') },
+            { route: null, icon: 'database', label: translate('NeoSQL') },
+            { route: null, icon: 'code-xml', label: translate('NeoPHP') },
         ]
     },
     'settings': {
         label: translate('Paramètres'),
         links: [
-            { route: '#', icon: 'settings', label: translate('Préférences') },
-            { route: '#', icon: 'globe', label: translate('Langue') },
-            { route: '#', icon: 'sun-moon', label: translate('Thème') }
+            { route: null, icon: 'settings', label: translate('Préférences') }
         ]
     },
 } %}
@@ -32,17 +36,37 @@
     </span>
 </div>
 
-<nav class="panel-nav">
-    {% for key, group in nav_items %}
-        <div class="panel-nav-group">
-            <span class="panel-nav-group-label">{{ group.label }}</span>
+<div class="panel-nav-scroll">
+    <nav class="panel-nav">
+        {% for key, group in nav_items %}
+            <div class="panel-nav-group">
+                <span class="panel-nav-group-label">{{ group.label }}</span>
 
-            {% for link in group.links %}
-                <a href="{{ link.route }}" class="panel-nav-link{{ app.route.name == link.route ? ' active' : '' }}">
-                    {{ Icon.icon(link.icon, {w: 5, h: 5}) }}
-                    <span>{{ link.label }}</span>
-                </a>
-            {% endfor %}
-        </div>
-    {% endfor %}
-</nav>
+                {% for link in group.links %}
+                    {% set route_prefix = link.route ? (link.route|split('.')|first ~ '.') : null %}
+                    {% set is_active = route_prefix is not null and currentRoute() starts with route_prefix %}
+
+                    <a href="{{ link.route ? path(link.route) : '#' }}" class="panel-nav-link{{ is_active ? ' active' : '' }}">
+                        {{ Icon.icon(link.icon, {w: 5, h: 5}) }}
+                        <span>{{ link.label }}</span>
+                    </a>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </nav>
+</div>
+
+<div class="panel-user">
+    <div class="panel-user-avatar">
+        BB
+    </div>
+
+    <div class="panel-user-info">
+        <span class="panel-user-name">benjamin.boezio</span>
+        <span class="panel-user-role">ROOT</span>
+    </div>
+
+    <a href="{{ path('auth.logout.index') }}" class="panel-logout-icon" aria-label="{{ translate('Déconnexion') }}">
+        {{ Icon.icon('log-out', {w: 4, h: 4}) }}
+    </a>
+</div>
