@@ -1,3 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('Javascript is ready !');
+    lucide.createIcons();
+
+    console.log('Javascript & LucideIcons are ready !');
 });

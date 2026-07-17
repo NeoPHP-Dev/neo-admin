@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@import "./pages/auth/login.css";
+
 @layer base {
     html, body {
         @apply w-full h-dvh;
