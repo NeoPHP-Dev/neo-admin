@@ -52,13 +52,15 @@ class AdministratorForm
                 'username' => [
                     TextType::class,
                     [
-                        'label' => $this->translationManager->translate('Nom d\'utilisateur', [], 'auth')
+                        'label' => $this->translationManager->translate('Nom d\'utilisateur', [], 'auth'),
+                        'placeholder' => 'super.admin'
                     ]
                 ],
                 'password' => [
                     PasswordType::class,
                     [
-                        'label' => $this->translationManager->translate('Mot de passe', [], 'auth')
+                        'label' => $this->translationManager->translate('Mot de passe', [], 'auth'),
+                        'placeholder' => '••••••••'
                     ]
                 ]
             ])
