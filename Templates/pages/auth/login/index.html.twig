@@ -38,7 +38,9 @@
                         {{ form_widget(loginForm, 'username') }}
                     </div>
                     {% for error in form_error(loginForm, 'username') %}
-                        <span class="error">{{ error }}</span>
+                        <span class="error">
+                            {{ error }}
+                        </span>
                     {% endfor %}
                 </div>
 
@@ -52,18 +54,17 @@
                         </button>
                     </div>
                     {% for error in form_error(loginForm, 'password') %}
-                        <span class="error">{{ error }}</span>
+                        <span class="error">
+                            {{ error }}
+                        </span>
                     {% endfor %}
                 </div>
 
-                <button type="submit" class="login-submit">
-                    <i data-lucide="log-in" class="w-4 h-4"></i>
-                    Se connecter
-                </button>
+                {{ form_widget(loginForm, 'submit', {label: 'Se connecter', attr: {class: 'login-submit'}}) }}
 
             {{ form_end() }}
 
-            <p class="login-footer">NeoPHP &copy; {{ "now"|date("Y") }}</p>
+            <p class="login-footer">{{ app.name }} &copy; {{ "now"|date("Y") }}</p>
         </div>
     </div>
 

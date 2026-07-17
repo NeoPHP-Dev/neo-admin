@@ -47,8 +47,7 @@ final class LoginController extends AbstractController
 
                 return $this->redirectToRoute('default.index');
             } else {
-                $this->getFlash()->add(
-                    'error',
+                $loginForm->setError(
                     $this->translationManager->translate(
                         'Nom d\'utilisateur et/ou mot de passe invalide',
                         [],
