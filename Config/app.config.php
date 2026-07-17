@@ -7,7 +7,8 @@ return [
     'general' => [
         'name'          => "NeoAdmin",
         'description'   => "Administration NeoPHP", // @translatable
-        'version'       => "1.0.0"
+        'version'       => "1.0.0",
+        'icon'          => "code-xml",
     ],
 
     'environment' => "dev",
