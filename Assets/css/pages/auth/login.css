@@ -1,4 +1,4 @@
-@layer components {
+@layer base {
     .login-page {
         @apply w-full h-dvh flex items-center justify-center bg-gray-50 px-4;
     }
