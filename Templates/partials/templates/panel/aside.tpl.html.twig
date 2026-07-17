@@ -62,8 +62,12 @@
     </div>
 
     <div class="panel-user-info">
-        <span class="panel-user-name">benjamin.boezio</span>
-        <span class="panel-user-role">ROOT</span>
+        <span class="panel-user-name">
+            {{ getAdministrator().username }}
+        </span>
+        <span class="panel-user-role">
+            {{ getAdministrator().role }}
+        </span>
     </div>
 
     <a href="{{ path('auth.logout.index') }}" class="panel-logout-icon" aria-label="{{ translate('Déconnexion') }}">
