@@ -2,19 +2,31 @@
 
 {% import 'partials/macros/icon.macro.html.twig' as Icon %}
 
+{% set nav_items = {
+    'Général': [
+        {route: '#', icon: 'layout-dashboard', label: 'Dashboard'},
+    ],
+    'Paramètres': [
+        {route: '#', icon: 'settings', label: 'Préférences'},
+    ],
+} %}
+
 <div class="panel-brand">
     {{ Icon.icon(app.icon, {w: 6, h: 6}) }}
     <span class="panel-brand-name">NeoPHP Admin</span>
 </div>
 
 <nav class="panel-nav">
-    <a href="#" class="panel-nav-link">
-        {{ Icon.icon('layout-dashboard', {w: 5, h: 5}) }}
-        <span>Dashboard</span>
-    </a>
+    {% for category, links in nav_items %}
+        <div class="panel-nav-group">
+            <span class="panel-nav-group-label">{{ category }}</span>
 
-    <a href="#" class="panel-nav-link">
-        {{ Icon.icon('settings', {w: 5, h: 5}) }}
-        <span>Préférences</span>
-    </a>
+            {% for link in links %}
+                <a href="{{ link.route != '#' ? path(link.route) : '#' }}" class="panel-nav-link{{ app.route.name == link.route ? ' active' : '' }}">
+                    {{ Icon.icon(link.icon, {w: 5, h: 5}) }}
+                    <span>{{ link.label }}</span>
+                </a>
+            {% endfor %}
+        </div>
+    {% endfor %}
 </nav>
