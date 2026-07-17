@@ -7,5 +7,6 @@ return [
     'Mot de passe' => 'Mot de passe',
     'Connexion' => 'Connexion',
     'Vous devez indiquer votre nom d\'utilisateur' => 'Vous devez indiquer votre nom d\'utilisateur',
-    'Vous devez indiquer votre mot de passe' => 'Vous devez indiquer votre mot de passe'
+    'Vous devez indiquer votre mot de passe' => 'Vous devez indiquer votre mot de passe',
+    'Nom d\'utilisateur et/ou mot de passe invalide' => 'Nom d\'utilisateur et/ou mot de passe invalide'
 ];
