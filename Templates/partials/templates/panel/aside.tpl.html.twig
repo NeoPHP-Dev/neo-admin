@@ -63,7 +63,7 @@
 
     <div class="panel-user-info">
         <span class="panel-user-name">
-            {{ getAdministrator().username }}
+            {{ (getAdministrator().display_fullname)|default(getAdministrator().username) }}
         </span>
         <span class="panel-user-role">
             {{ getAdministrator().role }}

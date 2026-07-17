@@ -50,7 +50,7 @@ final class AsideViewExtension implements TwigExtensionInterface
         $this->administrator = $this->cache->remember($cacheKey, self::TTL, fn() => [
             'id' => $user->getId(),
             'username' => $user->getUsername(),
-            'display_fullname' => $user->getFirstname() . ' ' . $user->getLastname(),
+            'display_fullname' => trim($user->getFirstname() . ' ' . $user->getLastname()) ?: $user->getUsername(),
             'avatar' => $user->getAvatar(),
             'initials' => mb_strtoupper(
                 (
