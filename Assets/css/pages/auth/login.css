@@ -35,8 +35,8 @@
         @apply flex flex-col gap-1.5 mb-5;
     }
 
-    .login-label {
-        @apply text-sm font-medium text-gray-700;
+    .login-field label {
+        @apply text-xs font-medium text-gray-700;
     }
 
     .login-input-wrap {
