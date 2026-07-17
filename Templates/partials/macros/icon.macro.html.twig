@@ -1,0 +1,18 @@
+{# ./src/Neo_Admin/Templates/partials/macros/icon.macro.html.twig #}
+
+{% macro icon(name, options = {}) %}
+    {% set w_map = {
+        3: 'w-3', 4: 'w-4', 5: 'w-5', 6: 'w-6',
+        7: 'w-7', 8: 'w-8', 10: 'w-10', 12: 'w-12'
+    } %}
+    {% set h_map = {
+        3: 'h-3', 4: 'h-4', 5: 'h-5', 6: 'h-6',
+        7: 'h-7', 8: 'h-8', 10: 'h-10', 12: 'h-12'
+    } %}
+
+    {% set w_class = w_map[options.w|default(4)]|default(w_map[4]) %}
+    {% set h_class = h_map[options.h|default(4)]|default(h_map[4]) %}
+
+    <i data-lucide="{{ name }}" class="{{ w_class }} {{ h_class }}{{ options.class is defined ? ' ' ~ options.class : '' }}"
+    {%- for k, v in options.attr|default({}) %} {{ k }}="{{ v }}"{% endfor %}></i>
+{% endmacro %}

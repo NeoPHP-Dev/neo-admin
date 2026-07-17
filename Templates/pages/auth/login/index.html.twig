@@ -1,14 +1,16 @@
 {# ./src/Neo_Admin/Templates/pages/auth/login/index.html.twig #}
 
 {% extends "layouts/base.layout.html.twig" %}
+
 {% import 'partials/macros/form.macro.html.twig' as Form %}
+{% import 'partials/macros/icon.macro.html.twig' as Icon %}
 
 {% block content %}
     <div class="login-page">
         <div class="login-card">
             <div class="login-header">
                 <div class="login-logo">
-                    <i data-lucide="shield-check" class="w-6 h-6"></i>
+                    {{ Icon.icon('shield-check', {w: 6, h: 6}) }}
                 </div>
                 <h1 class="login-title">
                     {{ app.name }}
