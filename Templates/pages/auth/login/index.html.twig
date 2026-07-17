@@ -32,13 +32,5 @@
         </div>
     </div>
 
-    <script>
-        document.querySelectorAll('[data-toggle-password]').forEach(function (btn) {
-            btn.addEventListener('click', function () {
-                var wrap = btn.closest('[data-password-wrap]');
-                var input = wrap.querySelector('input');
-                input.type = input.type === 'password' ? 'text' : 'password';
-            });
-        });
-    </script>
+    <script type="text/javascript" src="{{ asset('js/components/Form.js') }}"></script>
 {% endblock %}
