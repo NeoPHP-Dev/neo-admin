@@ -4,5 +4,6 @@ declare(strict_types=1);
 
 return [
     'Administration NeoPHP' => 'Administration NeoPHP',
-    'Français' => 'Français'
+    'Français' => 'Français',
+    'Anglais' => 'Anglais'
 ];

@@ -23,6 +23,7 @@ return [
         'default_locale'    => 'fr',
         'available_locales' => [
             'fr' => 'Français', // @translatable
+            'en' => 'Anglais', // @translatable
         ],
     ],
 
