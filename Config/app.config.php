@@ -19,7 +19,7 @@ return [
     ],
 
     'translation' => [
-        'enabled'           => false,
+        'enabled'           => true,
         'default_locale'    => 'fr',
         'available_locales' => [
             'fr' => 'Français',
