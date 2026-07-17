@@ -17,8 +17,6 @@ final class DashboardController extends AbstractController
     #[Route(path: '/', name: 'index', methods: ['GET'])]
     public function index(): Response
     {
-        return $this->json([
-            'data' => 'Dashboard panel'
-        ]);
+        return $this->render('pages/panel/dashboard/index.html.twig', []);
     }
 }
