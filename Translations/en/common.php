@@ -13,5 +13,6 @@ return [
     'Thème' => 'Theme',
     'Général' => 'General',
     'Outils' => 'Tools',
-    'Paramètres' => 'Settings'
+    'Paramètres' => 'Settings',
+    'Déconnexion' => 'Logout'
 ];

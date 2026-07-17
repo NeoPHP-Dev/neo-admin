@@ -13,5 +13,6 @@ return [
     'NeoSQL' => 'NeoSQL',
     'Général' => 'Général',
     'Outils' => 'Outils',
-    'Paramètres' => 'Paramètres'
+    'Paramètres' => 'Paramètres',
+    'Déconnexion' => 'Déconnexion'
 ];

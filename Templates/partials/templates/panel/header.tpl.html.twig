@@ -7,10 +7,8 @@
 </div>
 
 <div class="panel-header-actions">
-    <form action="#" method="POST" class="panel-logout-form">
-        <button type="submit" class="panel-logout">
-            {{ Icon.icon('log-out', {w: 4, h: 4}) }}
-            Déconnexion
-        </button>
-    </form>
+    <a href="{{ path('auth.logout.index') }}" class="panel-logout">
+        {{ Icon.icon('log-out', {w: 4, h: 4}) }}
+        {{ translate('Déconnexion') }}
+    </a>
 </div>
