@@ -3,26 +3,42 @@
 {% import 'partials/macros/icon.macro.html.twig' as Icon %}
 
 {% set nav_items = {
-    'Général': [
-        {route: '#', icon: 'layout-dashboard', label: 'Dashboard'},
-    ],
-    'Paramètres': [
-        {route: '#', icon: 'settings', label: 'Préférences'},
-    ],
+    'general': {
+        label: translate('Général'),
+        links: [
+            { route: '#', icon: 'layout-dashboard', label: translate('Tableau de bord') },
+        ]
+    },
+    'tools': {
+        label: translate('Outils'),
+        links: [
+            { route: '#', icon: 'database', label: translate('NeoSQL') },
+        ]
+    },
+    'settings': {
+        label: translate('Paramètres'),
+        links: [
+            { route: '#', icon: 'settings', label: translate('Préférences') },
+            { route: '#', icon: 'globe', label: translate('Langue') },
+            { route: '#', icon: 'sun-moon', label: translate('Thème') }
+        ]
+    },
 } %}
 
 <div class="panel-brand">
     {{ Icon.icon(app.icon, {w: 6, h: 6}) }}
-    <span class="panel-brand-name">NeoPHP Admin</span>
+    <span class="panel-brand-name">
+        {{ app.name }}
+    </span>
 </div>
 
 <nav class="panel-nav">
-    {% for category, links in nav_items %}
+    {% for key, group in nav_items %}
         <div class="panel-nav-group">
-            <span class="panel-nav-group-label">{{ category }}</span>
+            <span class="panel-nav-group-label">{{ group.label }}</span>
 
-            {% for link in links %}
-                <a href="{{ link.route != '#' ? path(link.route) : '#' }}" class="panel-nav-link{{ app.route.name == link.route ? ' active' : '' }}">
+            {% for link in group.links %}
+                <a href="{{ link.route }}" class="panel-nav-link{{ app.route.name == link.route ? ' active' : '' }}">
                     {{ Icon.icon(link.icon, {w: 5, h: 5}) }}
                     <span>{{ link.label }}</span>
                 </a>

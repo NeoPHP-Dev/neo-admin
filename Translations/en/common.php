@@ -6,6 +6,12 @@ return [
     'Administration NeoPHP' => 'Administration NeoPHP',
     'Français' => 'French',
     'Anglais' => 'English',
-    'You must enter your username.' => 'You must enter your username.',
-    'You must enter your password.' => 'You must enter your password.'
+    'Tableau de bord' => 'Dashboard',
+    'NeoSQL' => 'NeoSQL',
+    'Préférences' => 'Preferences',
+    'Langue' => 'Language',
+    'Thème' => 'Theme',
+    'Général' => 'General',
+    'Outils' => 'Tools',
+    'Paramètres' => 'Settings'
 ];
