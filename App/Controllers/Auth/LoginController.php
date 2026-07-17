@@ -38,10 +38,11 @@ final class LoginController extends AbstractController
             if ($isAuth) {
 
                 $this->getLogger()->channel('security')->info(
-                    sprintf('%s was successfull logged in at %s',
+                    msg: sprintf('%s was successfull logged in at %s',
                         $this->auth()->user()->getUsername(),
-                        date('d-m-Y H:i:s')
+                        date('d-m-Y H:i:s'),
                     ),
+                    origin: 'auth.login'
                 );
 
                 return $this->redirectToRoute('default.index');

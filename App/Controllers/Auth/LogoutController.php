@@ -23,11 +23,12 @@ final class LogoutController extends AbstractController
             $this->auth()->logout();
 
             $this->getLogger()->channel('security')->info(
-                sprintf(
+                msg: sprintf(
                     '%s was successfull logged out at %s',
                     $admin->getUsername(),
                     date('d-m-Y H:i:s')
-                )
+                ),
+                origin: 'auth.logout'
             );
         }
         return $this->redirectToRoute('default.index');
