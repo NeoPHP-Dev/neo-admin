@@ -15,23 +15,6 @@ return [
             ]
         ]
     ],
-    'tools' => [
-        'label' => 'Outils',
-        'items' => [
-            [
-                'route' => 'panel.neosql.index',
-                'icon' => 'database',
-                'label' => 'NeoSQL',
-                'controller' => \Neo\Src\Neo_Admin\App\Controllers\Panel\NeoSqlController::class,
-            ],
-            [
-                'route' => null,
-                'icon' => 'code-xml',
-                'label' => 'NeoPHP',
-                'controller' => null,
-            ]
-        ]
-    ],
     'settings' => [
         'label' => 'Paramètres',
         'items' => [

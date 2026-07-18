@@ -49,8 +49,13 @@
 
     {% set type = options.type|default('text') %}
     {% set attrs = options.attr|default({}) %}
+    {% set id = 'field_' ~ name %}
 
     <div class="form-field{{ options.wrapper_class is defined ? ' ' ~ options.wrapper_class : '' }}">
+        {% if options.label is defined %}
+            <label for="{{ id }}">{{ options.label }}</label>
+        {% endif %}
+
         <div class="form-input-wrap{{ options.icon is not defined ? ' no-icon' : '' }}">
             {% if options.icon is defined %}
             {{ Icon.icon(options.icon, {w: 4, h: 4, class: 'form-icon'}) }}
@@ -58,11 +63,17 @@
 
             <input
                     type="{{ type }}"
+                    id="{{ id }}"
                     name="{{ name }}"
+                {%- if options.value is defined and options.value is not null %} value="{{ options.value }}"{% endif %}
                 {%- if options.placeholder is defined %} placeholder="{{ options.placeholder }}"{% endif %}
             {%- for k, v in attrs %} {{ k }}="{{ v }}"{% endfor %}
             >
         </div>
+
+        {% if options.help is defined %}
+            <p class="form-help">{{ options.help }}</p>
+        {% endif %}
     </div>
 {% endmacro %}
 

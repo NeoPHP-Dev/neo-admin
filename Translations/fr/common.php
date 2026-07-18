@@ -70,5 +70,11 @@ return [
     'Non' => 'Non',
     'Oui' => 'Oui',
     'Données' => 'Données',
-    'lignes au total' => 'lignes au total'
+    'lignes au total' => 'lignes au total',
+    'Ajouter' => 'Ajouter',
+    'Actions' => 'Actions',
+    'Modifier' => 'Modifier',
+    'Supprimer' => 'Supprimer',
+    'Créer' => 'Créer',
+    'Enregistrer' => 'Enregistrer'
 ];
