@@ -20,5 +20,6 @@ return [
     'Clients' => 'Clients',
     'Projets' => 'Projets',
     'Factures' => 'Factures',
-    'Rôles' => 'Rôles'
+    'Rôles' => 'Rôles',
+    'Invalid username and/or password' => 'Invalid username and/or password'
 ];

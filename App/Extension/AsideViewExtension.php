@@ -60,10 +60,12 @@ final class AsideViewExtension implements TwigExtensionInterface
                     mb_substr($user->getLastname() ?? '', 0, 1)
                 ) ?: mb_substr($user->getUsername(), 0, 1)
             ),
-            'role' => $role ? [
-                'id' => $role->getId(),
-                'label' => $role->getLabel(),
-            ] : null,
+            'role' => [
+                'id' => $role ? $role->getId() : null,
+                'label' => $role ? $role->getLabel() : '__NOT_DEFINED__',
+                'textColor' => $role ? $role->getTextColor() : null,
+                'backgroundColor' => $role ? $role->getBackgroundColor() : null,
+            ]
         ]);
 
         return $this->administrator;

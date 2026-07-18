@@ -16,6 +16,10 @@ class AdministratorRole extends AbstractModel
 
     public string $description;
 
+    public string $textColor;
+
+    public string $backgroundColor;
+
     public ?\DateTime $created_at = null;
 
     public ?\DateTime $updated_at = null;
@@ -50,6 +54,26 @@ class AdministratorRole extends AbstractModel
     public function setDescription(string $description): static
     {
         return $this->setAttribute('description', $description);
+    }
+
+    public function getTextColor(): string
+    {
+        return $this->textColor;
+    }
+
+    public function setTextColor(string $textColor): static
+    {
+        return $this->setAttribute('textColor', $textColor);
+    }
+
+    public function getBackgroundColor(): string
+    {
+        return $this->backgroundColor;
+    }
+
+    public function setBackgroundColor(string $backgroundColor): static
+    {
+        return $this->setAttribute('backgroundColor', $backgroundColor);
     }
 
     public function getCreatedAt(): ?\DateTime

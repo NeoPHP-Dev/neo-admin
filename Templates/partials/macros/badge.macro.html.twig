@@ -1,0 +1,8 @@
+{# ./src/Neo_Admin/Templates/partials/macros/badge.macro.html.twig #}
+
+{% macro badge(text, options = {}) %}
+    <span
+            class="badge{{ options.class is defined ? ' ' ~ options.class : '' }}"
+            style="color: {{ options.color|default('#374151') }}; background-color: {{ options.background|default('#e5e7eb') }};"
+    >{{ text }}</span>
+{% endmacro %}

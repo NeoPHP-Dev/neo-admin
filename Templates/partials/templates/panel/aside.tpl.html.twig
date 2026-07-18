@@ -1,6 +1,7 @@
 {# ./src/Neo_Admin/Templates/partials/templates/panel/aside.tpl.html.twig #}
 
 {% import 'partials/macros/icon.macro.html.twig' as Icon %}
+{% import 'partials/macros/badge.macro.html.twig' as Badge %}
 
 {% set nav_items = {
     'general': {
@@ -66,7 +67,8 @@
             {{ (getAdministrator().display_fullname)|default(getAdministrator().username) }}
         </span>
         <span class="panel-user-role">
-            {{ getAdministrator().role.label ?? '__NOT_DEFINED__' }}
+            {% set role = getAdministrator().role %}
+            {{ Badge.badge(role.label, {color: role.textColor, background: role.backgroundColor}) }}
         </span>
     </div>
 
