@@ -35,9 +35,9 @@ return [
         'password'   => 'password',
         'guard'      => 'session',
         'role'       => [
-            'model'       => '',
-            'foreign_key' => '',
-            'field'       => '',
+            'model'       => Neo\Src\Neo_Admin\Database\Model\AdministratorRole::class,
+            'foreign_key' => 'role_id',
+            'field'       => 'label',
         ],
         'options' => [
             'login'      => '',

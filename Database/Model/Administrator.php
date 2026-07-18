@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Neo\Src\Neo_Admin\Database\Model;
 
+use Neo\Core\Database\ORM\Attribute\BelongsTo;
 use Neo\Core\Database\ORM\Model\AbstractModel;
 
 class Administrator extends AbstractModel 
@@ -22,11 +23,16 @@ class Administrator extends AbstractModel
 
     public ?string $lastname = null;
 
+    public int $role_id = 0;
+
     public ?\DateTime $created_at = null;
 
     public ?\DateTime $updated_at = null;
 
     public ?\DateTime $deleted_at = null;
+
+    #[BelongsTo(target: AdministratorRole::class, foreignKey: 'role_id')]
+    public ?AdministratorRole $role = null;
 
     public function getId(): ?int
     {
@@ -88,6 +94,16 @@ class Administrator extends AbstractModel
         return $this->setAttribute('lastname', $lastname);
     }
 
+    public function getRoleId(): int
+    {
+        return $this->role_id;
+    }
+
+    public function setRoleId(int $role_id): static
+    {
+        return $this->setAttribute('role_id', $role_id);
+    }
+
     public function getCreatedAt(): ?\DateTime
     {
         return $this->created_at;
@@ -116,5 +132,10 @@ class Administrator extends AbstractModel
     public function setDeletedAt(?\DateTime $deleted_at): static
     {
         return $this->setAttribute('deleted_at', $deleted_at);
+    }
+
+    public function getRole(): ?AdministratorRole
+    {
+        return $this->getRelationValue('role');
     }
 }
