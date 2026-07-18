@@ -1,5 +1,6 @@
 @layer components {
     .code-block {
-        @apply block rounded-lg bg-gray-900 text-gray-100 text-xs font-mono leading-relaxed p-4 overflow-x-auto whitespace-pre;
+        @apply block rounded-xl bg-neutral-900 text-neutral-100 text-[13px] font-mono leading-6
+        p-5 overflow-x-auto whitespace-pre border border-neutral-800 shadow-sm;
     }
 }

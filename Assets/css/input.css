@@ -11,6 +11,8 @@
 @import "./pages/panel/panel.css";
 @import "./pages/panel/preferences.css";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
     html, body {
         @apply w-full h-dvh;

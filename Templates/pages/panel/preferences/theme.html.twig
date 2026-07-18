@@ -6,7 +6,7 @@
 {% import 'partials/macros/breadcrumb.macro.html.twig' as Breadcrumb %}
 
 {% set page = {
-    title: translate('Préférences')
+    title: translate('Thème')
 } %}
 
 {% block panelContent %}
@@ -17,20 +17,28 @@
     ]) }}
 
     <div class="theme-preview-grid">
-        <div class="theme-preview-card">
+        <a href="{{ path('panel.preference.theme.change', {theme: 'light'}) }}"
+           class="theme-preview-card{{ currentTheme == 'light' ? ' active' : '' }}">
             <div class="theme-preview-swatch theme-preview-swatch-light"></div>
             <div class="theme-preview-label">
                 {{ Icon.icon('sun', {w: 4, h: 4}) }}
                 <span>{{ translate('Clair') }}</span>
+                {% if currentTheme == 'light' %}
+                    {{ Icon.icon('check', {w: 4, h: 4}) }}
+                {% endif %}
             </div>
-        </div>
+        </a>
 
-        <div class="theme-preview-card">
+        <a href="{{ path('panel.preference.theme.change', {theme: 'dark'}) }}"
+           class="theme-preview-card{{ currentTheme == 'dark' ? ' active' : '' }}">
             <div class="theme-preview-swatch theme-preview-swatch-dark"></div>
             <div class="theme-preview-label">
                 {{ Icon.icon('moon', {w: 4, h: 4}) }}
                 <span>{{ translate('Sombre') }}</span>
+                {% if currentTheme == 'dark' %}
+                    {{ Icon.icon('check', {w: 4, h: 4}) }}
+                {% endif %}
             </div>
-        </div>
+        </a>
     </div>
 {% endblock %}

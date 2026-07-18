@@ -33,6 +33,13 @@ final class PreferenceController extends AbstractController
         return $this->render('pages/panel/preferences/theme.html.twig');
     }
 
+    #[Route(path: '/theme/{theme}', name: 'theme.change', methods: ['GET'])]
+    public function changeTheme(string $theme): RedirectResponse
+    {
+        $this->getSession()->set('theme', $theme);
+        return $this->redirectBack();
+    }
+
     #[Route(path: '/locale', name: 'locale.index', methods: ['GET'])]
     public function locale(): Response
     {

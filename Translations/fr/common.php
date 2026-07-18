@@ -53,5 +53,10 @@ return [
     'Clair' => 'Clair',
     'Sombre' => 'Sombre',
     'Rechercher une langue' => 'Rechercher une langue',
-    'Tableau de bord' => 'Tableau de bord'
+    'Tableau de bord' => 'Tableau de bord',
+    'Général' => 'Général',
+    'NeoSQL' => 'NeoSQL',
+    'NeoPHP' => 'NeoPHP',
+    'Outils' => 'Outils',
+    'Paramètres' => 'Paramètres'
 ];

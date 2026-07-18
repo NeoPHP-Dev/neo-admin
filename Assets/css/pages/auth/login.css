@@ -1,10 +1,10 @@
 @layer components {
     .login-page {
-        @apply w-full h-dvh flex items-center justify-center bg-gray-50 px-4;
+        @apply w-full h-dvh flex items-center justify-center bg-neutral-50 dark:bg-neutral-950 px-4;
     }
 
     .login-card {
-        @apply w-full max-w-sm bg-white border border-gray-200 rounded-xl shadow-sm p-8;
+        @apply w-full max-w-sm bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl shadow-sm p-8;
     }
 
     .login-header {
@@ -12,18 +12,18 @@
     }
 
     .login-logo {
-        @apply w-12 h-12 flex items-center justify-center rounded-full bg-black text-white;
+        @apply w-12 h-12 flex items-center justify-center rounded-full bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900;
     }
 
     .login-title {
-        @apply text-xl font-semibold text-gray-900 mt-2;
+        @apply text-xl font-semibold text-neutral-900 dark:text-neutral-100 mt-2;
     }
 
     .login-subtitle {
-        @apply text-sm text-gray-500 text-center;
+        @apply text-sm text-neutral-500 dark:text-neutral-400 text-center;
     }
 
     .login-footer {
-        @apply text-center text-xs text-gray-400 mt-8;
+        @apply text-center text-xs text-neutral-400 dark:text-neutral-600 mt-8;
     }
 }

@@ -1,7 +1,9 @@
 {# ./src/Neo_Admin/Templates/layouts/base.layout.html.twig #}
 
+{% set currentTheme = app.session.get('theme') %}
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="{{ currentTheme }}">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
