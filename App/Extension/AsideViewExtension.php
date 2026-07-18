@@ -45,6 +45,8 @@ final class AsideViewExtension implements TwigExtensionInterface
             return null;
         }
 
+        $role = $user->getRole();
+
         $cacheKey = 'admin:profile:' . $user->getId();
 
         $this->administrator = $this->cache->remember($cacheKey, self::TTL, fn() => [
@@ -58,7 +60,10 @@ final class AsideViewExtension implements TwigExtensionInterface
                     mb_substr($user->getLastname() ?? '', 0, 1)
                 ) ?: mb_substr($user->getUsername(), 0, 1)
             ),
-            'role' => $user->role?->name ?? '--',
+            'role' => $role ? [
+                'id' => $role->getId(),
+                'label' => $role->getLabel(),
+            ] : null,
         ]);
 
         return $this->administrator;
