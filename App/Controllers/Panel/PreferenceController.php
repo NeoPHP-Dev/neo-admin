@@ -11,7 +11,6 @@ use Neo\Core\Http\Response\Response;
 use Neo\Core\Security\Middleware\Attribute\IsGranted;
 use Neo\Core\Translation\TranslationManager;
 
-#[IsGranted(roles: ['ROOT'])]
 #[MainRoute(path: '/panel/preference', name: 'panel.preference')]
 final class PreferenceController extends AbstractController
 {
