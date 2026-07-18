@@ -6,11 +6,14 @@ namespace Neo\Src\Neo_Admin;
 use Neo\Core\DI\Container;
 use Neo\Core\Module\Abstract\AbstractModule;
 use Neo\Core\Security\Auth\AuthManager;
+use Neo\Core\Translation\TranslationManager;
 use Neo\Core\Utils\Cache\Cache;
+use Neo\Core\Utils\Config\Config;
 use Neo\Core\Utils\Config\ConfigModule;
 use Neo\Core\View\ViewModule;
 use Neo\Core\Utils\Cache\CacheModule;
 use Neo\Src\Neo_Admin\App\Extension\AsideViewExtension;
+use Neo\Src\Neo_Admin\App\Extension\NavigationViewExtension;
 
 final class Neo_AdminModule extends AbstractModule
 {
@@ -28,5 +31,12 @@ final class Neo_AdminModule extends AbstractModule
             $c->get(Cache::class),
         ));
         $container->tag(AsideViewExtension::class, 'twig.extension');
+
+
+        $container->set(NavigationViewExtension::class, fn(Container $c) => new NavigationViewExtension(
+            $c->get(Config::class),
+            $c->get(TranslationManager::class),
+        ));
+        $container->tag(NavigationViewExtension::class, 'twig.extension');
     }
 }

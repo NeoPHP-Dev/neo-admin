@@ -3,33 +3,6 @@
 {% import 'partials/macros/icon.macro.html.twig' as Icon %}
 {% import 'partials/macros/badge.macro.html.twig' as Badge %}
 
-{% set nav_items = {
-    'general': {
-        label: translate('Général'),
-        links: [
-            { route: 'panel.dashboard.index', icon: 'layout-dashboard', label: translate('Tableau de bord') },
-            { route: null, icon: 'shield-user', label: translate('Administrateurs') },
-            { route: null, icon: 'shield', label: translate('Rôles') },
-            { route: null, icon: 'users', label: translate('Clients') },
-            { route: null, icon: 'briefcase-business', label: translate('Projets') },
-            { route: null, icon: 'file-text', label: translate('Factures') },
-        ]
-    },
-    'tools': {
-        label: translate('Outils'),
-        links: [
-            { route: null, icon: 'database', label: translate('NeoSQL') },
-            { route: null, icon: 'code-xml', label: translate('NeoPHP') },
-        ]
-    },
-    'settings': {
-        label: translate('Paramètres'),
-        links: [
-            { route: null, icon: 'settings', label: translate('Préférences') }
-        ]
-    },
-} %}
-
 <div class="panel-brand">
     {{ Icon.icon(app.icon, {w: 6, h: 6}) }}
     <span class="panel-brand-name">
@@ -39,7 +12,7 @@
 
 <div class="panel-nav-scroll">
     <nav class="panel-nav">
-        {% for key, group in nav_items %}
+        {% for key, group in navigationItems() %}
             <div class="panel-nav-group">
                 <span class="panel-nav-group-label">{{ group.label }}</span>
 
