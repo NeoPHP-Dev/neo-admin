@@ -5,7 +5,9 @@ namespace Neo\Src\Neo_Admin;
 
 use Neo\Core\DI\Container;
 use Neo\Core\Module\Abstract\AbstractModule;
+use Neo\Core\Routing\Router;
 use Neo\Core\Security\Auth\AuthManager;
+use Neo\Core\Security\Middleware\MiddlewareManager;
 use Neo\Core\Translation\TranslationManager;
 use Neo\Core\Utils\Cache\Cache;
 use Neo\Core\Utils\Config\Config;
@@ -36,6 +38,8 @@ final class Neo_AdminModule extends AbstractModule
         $container->set(NavigationViewExtension::class, fn(Container $c) => new NavigationViewExtension(
             $c->get(Config::class),
             $c->get(TranslationManager::class),
+            $c->get(Router::class),
+            $c->get(MiddlewareManager::class),
         ));
         $container->tag(NavigationViewExtension::class, 'twig.extension');
     }

@@ -36,10 +36,10 @@ return [
         'label' => 'Paramètres',
         'items' => [
             [
-                'route' => null,
+                'route' => 'panel.preference.index',
                 'icon' => 'settings',
                 'label' => 'Préférences',
-                'controller' => null,
+                'controller' => \Neo\Src\Neo_Admin\App\Controllers\Panel\PreferenceController::class,
             ]
         ]
     ],

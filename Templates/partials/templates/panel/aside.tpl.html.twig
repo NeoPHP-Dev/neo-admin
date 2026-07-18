@@ -17,7 +17,8 @@
                 <span class="panel-nav-group-label">{{ group.label }}</span>
 
                 {% for link in group.links %}
-                    {% set route_prefix = link.route ? (link.route|split('.')|first ~ '.') : null %}
+                    {% set parts = link.route ? link.route|split('.') : [] %}
+                    {% set route_prefix = parts|length > 1 ? (parts|slice(0, parts|length - 1)|join('.') ~ '.') : null %}
                     {% set is_active = route_prefix is not null and currentRoute() starts with route_prefix %}
 
                     <a href="{{ link.route ? path(link.route) : '#' }}" class="panel-nav-link{{ is_active ? ' active' : '' }}">
