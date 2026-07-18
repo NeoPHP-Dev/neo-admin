@@ -3,6 +3,10 @@
 {% extends "layouts/panel.layout.html.twig" %}
 {% import 'partials/macros/icon.macro.html.twig' as Icon %}
 
+{% set page = {
+    title: 'Tableau de bord'
+} %}
+
 {% block panelContent %}
     <div class="callout">
         <span class="callout-icon">{{ Icon.icon('info', {w: 5, h: 5}) }}</span>

@@ -5,6 +5,10 @@
 {% import 'partials/macros/badge.macro.html.twig' as Badge %}
 {% import 'partials/macros/breadcrumb.macro.html.twig' as Breadcrumb %}
 
+{% set page = {
+    title: 'Préférences'
+} %}
+
 {% block panelContent %}
     {{ Breadcrumb.breadcrumb([
         {label: translate('Préférences')}

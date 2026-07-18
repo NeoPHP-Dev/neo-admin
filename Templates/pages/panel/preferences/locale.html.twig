@@ -5,6 +5,10 @@
 {% import 'partials/macros/form.macro.html.twig' as Form %}
 {% import 'partials/macros/breadcrumb.macro.html.twig' as Breadcrumb %}
 
+{% set page = {
+    title: 'Préférences'
+} %}
+
 {% block panelContent %}
 
     {{ Breadcrumb.breadcrumb([
