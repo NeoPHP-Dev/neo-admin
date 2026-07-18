@@ -1,0 +1,21 @@
+{# ./src/Neo_Admin/Templates/partials/macros/breadcrumb.macro.html.twig #}
+
+{% macro breadcrumb(items) %}
+    {% import 'partials/macros/icon.macro.html.twig' as Icon %}
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        {% for item in items %}
+            {% set isLast = loop.last %}
+
+            {% if not isLast and item.route is defined and item.route is not null %}
+                <a href="{{ path(item.route) }}" class="breadcrumb-link">{{ item.label }}</a>
+            {% else %}
+                <span class="breadcrumb-current">{{ item.label }}</span>
+            {% endif %}
+
+            {% if not isLast %}
+                <span class="breadcrumb-separator">{{ Icon.icon('chevron-right', {w: 4, h: 4}) }}</span>
+            {% endif %}
+        {% endfor %}
+    </nav>
+{% endmacro %}

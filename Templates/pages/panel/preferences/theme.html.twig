@@ -3,20 +3,13 @@
 {% extends "layouts/panel.layout.html.twig" %}
 {% import 'partials/macros/icon.macro.html.twig' as Icon %}
 {% import 'partials/macros/badge.macro.html.twig' as Badge %}
+{% import 'partials/macros/breadcrumb.macro.html.twig' as Breadcrumb %}
 
 {% block panelContent %}
-    <a href="{{ path('panel.preference.index') }}" class="page-back-link">
-        {{ Icon.icon('arrow-left', {w: 4, h: 4}) }}
-        {{ translate('Préférences') }}
-    </a>
-
-    <div class="page-header">
-        <h1 class="page-header-title">
-            {{ translate('Thème') }}
-            {{ Badge.badge(translate('Bientôt disponible'), {color: '#a16207', background: '#fef9c3'}) }}
-        </h1>
-        <p class="page-header-subtitle">{{ translate("Choisis l'apparence de l'interface d'administration.") }}</p>
-    </div>
+    {{ Breadcrumb.breadcrumb([
+        {label: translate('Préférences'), route: 'panel.preference.index'},
+        {label: translate('Thème')}
+    ]) }}
 
     <div class="theme-preview-grid">
         <div class="theme-preview-card">

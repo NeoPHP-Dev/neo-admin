@@ -3,12 +3,12 @@
 {% extends "layouts/panel.layout.html.twig" %}
 {% import 'partials/macros/icon.macro.html.twig' as Icon %}
 {% import 'partials/macros/badge.macro.html.twig' as Badge %}
+{% import 'partials/macros/breadcrumb.macro.html.twig' as Breadcrumb %}
 
 {% block panelContent %}
-    <div class="page-header">
-        <h1 class="page-header-title">{{ translate('Préférences') }}</h1>
-        <p class="page-header-subtitle">{{ translate("Gère l'apparence et les réglages de ton compte administrateur.") }}</p>
-    </div>
+    {{ Breadcrumb.breadcrumb([
+        {label: translate('Préférences')}
+    ]) }}
 
     <div class="settings-grid">
         <a href="{{ path('panel.preference.theme.index') }}" class="settings-card">
