@@ -37,9 +37,14 @@ final class LoginController extends AbstractController
 
             if ($isAuth) {
 
+                $admin = $this->auth()->user();
+
+                $admin->setLastLoggedAt(new \DateTime());
+                $admin->save();
+
                 $this->getLogger()->channel('security')->info(
                     msg: sprintf('%s was successfull logged in at %s',
-                        $this->auth()->user()->getUsername(),
+                        $admin->getUsername(),
                         date('d-m-Y H:i:s'),
                     ),
                     origin: 'auth.login'

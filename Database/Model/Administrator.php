@@ -25,6 +25,8 @@ class Administrator extends AbstractModel
 
     public int $role_id = 0;
 
+    public ?\DateTime $last_logged_at = null;
+
     public ?\DateTime $created_at = null;
 
     public ?\DateTime $updated_at = null;
@@ -102,6 +104,16 @@ class Administrator extends AbstractModel
     public function setRoleId(int $role_id): static
     {
         return $this->setAttribute('role_id', $role_id);
+    }
+
+    public function getLastLoggedAt(): ?\DateTime
+    {
+        return $this->last_logged_at;
+    }
+
+    public function setLastLoggedAt(?\DateTime $last_logged_at): static
+    {
+        return $this->setAttribute('last_logged_at', $last_logged_at);
     }
 
     public function getCreatedAt(): ?\DateTime

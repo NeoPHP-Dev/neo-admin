@@ -20,6 +20,10 @@ final class LogoutController extends AbstractController
     {
         if ($this->auth()->check()) {
             $admin = $this->auth()->user();
+
+            $admin->setLastLoggedAt(null);
+            $admin->save();
+
             $this->auth()->logout();
 
             $this->getLogger()->channel('security')->info(
