@@ -10,6 +10,7 @@
 
 @import "./pages/panel/panel.css";
 @import "./pages/panel/preferences.css";
+@import "./pages/panel/neosql.css";
 
 @custom-variant dark (&:where(.dark, .dark *));
 

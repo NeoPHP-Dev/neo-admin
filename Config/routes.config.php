@@ -19,10 +19,10 @@ return [
         'label' => 'Outils',
         'items' => [
             [
-                'route' => null,
+                'route' => 'panel.neosql.index',
                 'icon' => 'database',
                 'label' => 'NeoSQL',
-                'controller' => null,
+                'controller' => \Neo\Src\Neo_Admin\App\Controllers\Panel\NeoSqlController::class,
             ],
             [
                 'route' => null,

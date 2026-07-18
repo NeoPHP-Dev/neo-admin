@@ -58,5 +58,17 @@ return [
     'NeoSQL' => 'NeoSQL',
     'NeoPHP' => 'NeoPHP',
     'Outils' => 'Outils',
-    'Paramètres' => 'Paramètres'
+    'Paramètres' => 'Paramètres',
+    'colonnes' => 'colonnes',
+    'lignes' => 'lignes',
+    'Colonnes' => 'Colonnes',
+    'Nom' => 'Nom',
+    'Type' => 'Type',
+    'Nullable' => 'Nullable',
+    'Clé' => 'Clé',
+    'Défaut' => 'Défaut',
+    'Non' => 'Non',
+    'Oui' => 'Oui',
+    'Données' => 'Données',
+    'lignes au total' => 'lignes au total'
 ];
