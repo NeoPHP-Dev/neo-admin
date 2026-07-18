@@ -8,8 +8,11 @@ use Neo\Core\Http\Response\RedirectResponse;
 use Neo\Core\Routing\Attribute\MainRoute;
 use Neo\Core\Routing\Attribute\Route;
 use Neo\Core\Http\Response\Response;
+use Neo\Core\Security\Middleware\Attribute\Middleware;
+use Neo\Core\Security\Middleware\Default\AuthMiddleware;
 use Neo\Core\Translation\TranslationManager;
 
+#[Middleware(use: AuthMiddleware::class, redirect: 'default.index')]
 #[MainRoute(path: '/panel/preference', name: 'panel.preference')]
 final class PreferenceController extends AbstractController
 {
