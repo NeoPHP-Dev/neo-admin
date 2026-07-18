@@ -16,7 +16,7 @@ return [
         ]
     ],
     'tools' => [
-        'label' => 'Général',
+        'label' => 'Outils',
         'items' => [
             [
                 'route' => null,

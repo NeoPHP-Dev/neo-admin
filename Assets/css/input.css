@@ -6,7 +6,9 @@
 @import "./components/code-block.css";
 
 @import "./pages/auth/login.css";
+
 @import "./pages/panel/panel.css";
+@import "./pages/panel/preferences.css";
 
 @layer base {
     html, body {

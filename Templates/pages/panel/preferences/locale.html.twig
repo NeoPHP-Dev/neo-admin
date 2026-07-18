@@ -1,0 +1,29 @@
+{# ./src/Neo_Admin/Templates/pages/panel/preferences/locale.html.twig #}
+
+{% extends "layouts/panel.layout.html.twig" %}
+{% import 'partials/macros/icon.macro.html.twig' as Icon %}
+{% import 'partials/macros/badge.macro.html.twig' as Badge %}
+
+{% block panelContent %}
+    <a href="{{ path('panel.preference.index') }}" class="page-back-link">
+        {{ Icon.icon('arrow-left', {w: 4, h: 4}) }}
+        {{ translate('Préférences') }}
+    </a>
+
+    <div class="page-header">
+        <h1 class="page-header-title">{{ translate('Langue') }}</h1>
+        <p class="page-header-subtitle">{{ translate("Choisis la langue de l'interface d'administration.") }}</p>
+    </div>
+
+    <div class="locale-list">
+        {% for locale in locales %}
+            <a href="{{ path('panel.preference.locale.change', {locale: locale.code}) }}" class="locale-option{{ currentLocale == locale.code ? ' active' : '' }}">
+                <span class="locale-option-icon">{{ Icon.icon('globe', {w: 4, h: 4}) }}</span>
+                <span class="locale-option-label">{{ translate(locale.label) }}</span>
+                {% if currentLocale == locale.code %}
+                    {{ Badge.badge(translate('Actuelle'), {color: '#15803d', background: '#dcfce7'}) }}
+                {% endif %}
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}

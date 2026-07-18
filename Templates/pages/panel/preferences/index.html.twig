@@ -1,0 +1,64 @@
+{# ./src/Neo_Admin/Templates/pages/panel/preferences/index.html.twig #}
+
+{% extends "layouts/panel.layout.html.twig" %}
+{% import 'partials/macros/icon.macro.html.twig' as Icon %}
+{% import 'partials/macros/badge.macro.html.twig' as Badge %}
+
+{% block panelContent %}
+    <div class="page-header">
+        <h1 class="page-header-title">{{ translate('Préférences') }}</h1>
+        <p class="page-header-subtitle">{{ translate("Gère l'apparence et les réglages de ton compte administrateur.") }}</p>
+    </div>
+
+    <div class="settings-grid">
+        <a href="{{ path('panel.preference.theme.index') }}" class="settings-card">
+            <span class="settings-card-icon settings-card-icon-violet">{{ Icon.icon('sun-moon', {w: 5, h: 5}) }}</span>
+            <div class="settings-card-body">
+                <span class="settings-card-title">{{ translate('Thème') }}</span>
+                <span class="settings-card-text">{{ translate('Clair, sombre ou automatique') }}</span>
+            </div>
+            <span class="settings-card-arrow">{{ Icon.icon('chevron-right', {w: 4, h: 4}) }}</span>
+        </a>
+
+        <a href="{{ path('panel.preference.locale.index') }}" class="settings-card">
+            <span class="settings-card-icon settings-card-icon-blue">{{ Icon.icon('globe', {w: 5, h: 5}) }}</span>
+            <div class="settings-card-body">
+                <span class="settings-card-title">{{ translate('Langue') }}</span>
+                <span class="settings-card-text">{{ translate("Langue de l'interface") }}</span>
+            </div>
+            <span class="settings-card-arrow">{{ Icon.icon('chevron-right', {w: 4, h: 4}) }}</span>
+        </a>
+
+        <div class="settings-card settings-card-disabled">
+            <span class="settings-card-icon settings-card-icon-amber">{{ Icon.icon('bell', {w: 5, h: 5}) }}</span>
+            <div class="settings-card-body">
+                <span class="settings-card-title">
+                    {{ translate('Notifications') }}
+                    {{ Badge.badge(translate('Bientôt'), {color: '#a16207', background: '#fef9c3'}) }}
+                </span>
+                <span class="settings-card-text">{{ translate('Préférences de notification') }}</span>
+            </div>
+        </div>
+
+        <div class="settings-card settings-card-disabled">
+            <span class="settings-card-icon settings-card-icon-rose">{{ Icon.icon('lock', {w: 5, h: 5}) }}</span>
+            <div class="settings-card-body">
+                <span class="settings-card-title">
+                    {{ translate('Sécurité') }}
+                    {{ Badge.badge(translate('Bientôt'), {color: '#a16207', background: '#fef9c3'}) }}
+                </span>
+                <span class="settings-card-text">{{ translate('Mot de passe, sessions actives') }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="callout">
+        <span class="callout-icon">{{ Icon.icon('info', {w: 5, h: 5}) }}</span>
+        <div class="callout-body">
+            <strong>{{ translate('Ajouter une nouvelle page de préférences') }}</strong>
+            {{ translate('Ajoute une action + route dans') }} <code>PreferenceController</code>,
+            {{ translate('crée le template dans') }} <code>pages/panel/preferences/</code>,
+            {{ translate('puis copie un bloc') }} <code>.settings-card</code> {{ translate('ici.') }}
+        </div>
+    </div>
+{% endblock %}

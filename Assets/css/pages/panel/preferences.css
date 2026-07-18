@@ -1,0 +1,111 @@
+@layer components {
+    .page-header {
+        @apply mb-6;
+    }
+
+    .page-header-title {
+        @apply flex items-center gap-2 text-xl font-semibold text-gray-900 mb-1;
+    }
+
+    .page-header-subtitle {
+        @apply text-sm text-gray-500;
+    }
+
+    .page-back-link {
+        @apply inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-900 transition mb-4;
+    }
+
+    .settings-grid {
+        @apply grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6;
+    }
+
+    .settings-card {
+        @apply flex items-center gap-3 rounded-xl border border-gray-200 bg-white p-4
+        hover:border-gray-300 hover:shadow-sm transition;
+    }
+
+    .settings-card-disabled {
+        @apply opacity-60 pointer-events-none;
+    }
+
+    .settings-card-icon {
+        @apply shrink-0 flex items-center justify-center w-10 h-10 rounded-lg;
+    }
+
+    .settings-card-icon-violet {
+        @apply bg-violet-50 text-violet-600;
+    }
+
+    .settings-card-icon-blue {
+        @apply bg-blue-50 text-blue-600;
+    }
+
+    .settings-card-icon-amber {
+        @apply bg-amber-50 text-amber-600;
+    }
+
+    .settings-card-icon-rose {
+        @apply bg-rose-50 text-rose-600;
+    }
+
+    .settings-card-body {
+        @apply flex flex-col gap-0.5 flex-1 min-w-0;
+    }
+
+    .settings-card-title {
+        @apply flex items-center gap-2 text-sm font-medium text-gray-900;
+    }
+
+    .settings-card-text {
+        @apply text-xs text-gray-500;
+    }
+
+    .settings-card-arrow {
+        @apply shrink-0 text-gray-300;
+    }
+
+    .theme-preview-grid {
+        @apply grid grid-cols-1 sm:grid-cols-2 gap-4;
+    }
+
+    .theme-preview-card {
+        @apply rounded-xl border border-gray-200 bg-white p-3 opacity-70;
+    }
+
+    .theme-preview-swatch {
+        @apply w-full h-24 rounded-lg mb-3;
+    }
+
+    .theme-preview-swatch-light {
+        @apply bg-gradient-to-br from-gray-50 to-white border border-gray-200;
+    }
+
+    .theme-preview-swatch-dark {
+        @apply bg-gradient-to-br from-gray-800 to-gray-900;
+    }
+
+    .theme-preview-label {
+        @apply flex items-center gap-2 text-sm text-gray-700 justify-center;
+    }
+
+    .locale-list {
+        @apply flex flex-col gap-2 max-w-md;
+    }
+
+    .locale-option {
+        @apply flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-4 py-3
+        hover:border-gray-300 hover:bg-gray-50 transition;
+    }
+
+    .locale-option.active {
+        @apply border-gray-900;
+    }
+
+    .locale-option-icon {
+        @apply shrink-0 text-gray-400;
+    }
+
+    .locale-option-label {
+        @apply flex-1 text-sm font-medium text-gray-900;
+    }
+}
