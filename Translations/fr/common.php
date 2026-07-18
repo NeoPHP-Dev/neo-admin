@@ -70,5 +70,6 @@ return [
     'Sombre' => 'Sombre',
     'Système' => 'Système',
     'Choisis la langue de l\'interface d\'administration.' => 'Choisis la langue de l\'interface d\'administration.',
-    'Actuelle' => 'Actuelle'
+    'Actuelle' => 'Actuelle',
+    'Rechercher une langue' => 'Rechercher une langue'
 ];

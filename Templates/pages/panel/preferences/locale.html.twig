@@ -2,7 +2,7 @@
 
 {% extends "layouts/panel.layout.html.twig" %}
 {% import 'partials/macros/icon.macro.html.twig' as Icon %}
-{% import 'partials/macros/badge.macro.html.twig' as Badge %}
+{% import 'partials/macros/form.macro.html.twig' as Form %}
 
 {% block panelContent %}
     <a href="{{ path('panel.preference.index') }}" class="page-back-link">
@@ -15,15 +15,27 @@
         <p class="page-header-subtitle">{{ translate("Choisis la langue de l'interface d'administration.") }}</p>
     </div>
 
-    <div class="locale-list">
+    {{ Form.simple_field('locale_search', {
+        type: 'search',
+        icon: 'search',
+        placeholder: translate('Rechercher une langue'),
+        attr: {'live-search': 'locale-search'},
+        wrapper_class: 'search-field'
+    }) }}
+
+    <div class="locale-grid">
         {% for locale in locales %}
-            <a href="{{ path('panel.preference.locale.change', {locale: locale.code}) }}" class="locale-option{{ currentLocale == locale.code ? ' active' : '' }}">
-                <span class="locale-option-icon">{{ Icon.icon('globe', {w: 4, h: 4}) }}</span>
-                <span class="locale-option-label">{{ translate(locale.label) }}</span>
+            <a href="{{ path('panel.preference.locale.change', {locale: locale.code}) }}"
+               class="locale-card{{ currentLocale == locale.code ? ' active' : '' }}"
+               locale-search="">
+                <span class="locale-card-code">{{ locale.code|upper }}</span>
+                <span class="locale-card-label">{{ translate(locale.label) }}</span>
                 {% if currentLocale == locale.code %}
-                    {{ Badge.badge(translate('Actuelle'), {color: '#15803d', background: '#dcfce7'}) }}
+                    <span class="locale-card-check">{{ Icon.icon('check', {w: 4, h: 4}) }}</span>
                 {% endif %}
             </a>
         {% endfor %}
     </div>
+
+    <script type="text/javascript" src="{{ asset('js/components/LiveSearch.js') }}"></script>
 {% endblock %}

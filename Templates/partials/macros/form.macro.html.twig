@@ -44,6 +44,28 @@
     {% endif %}
 {% endmacro %}
 
+{% macro simple_field(name, options = {}) %}
+    {% import 'partials/macros/icon.macro.html.twig' as Icon %}
+
+    {% set type = options.type|default('text') %}
+    {% set attrs = options.attr|default({}) %}
+
+    <div class="form-field{{ options.wrapper_class is defined ? ' ' ~ options.wrapper_class : '' }}">
+        <div class="form-input-wrap{{ options.icon is not defined ? ' no-icon' : '' }}">
+            {% if options.icon is defined %}
+            {{ Icon.icon(options.icon, {w: 4, h: 4, class: 'form-icon'}) }}
+            {% endif %}
+
+            <input
+                    type="{{ type }}"
+                    name="{{ name }}"
+                {%- if options.placeholder is defined %} placeholder="{{ options.placeholder }}"{% endif %}
+            {%- for k, v in attrs %} {{ k }}="{{ v }}"{% endfor %}
+            >
+        </div>
+    </div>
+{% endmacro %}
+
 {% macro submit(form, options = {}) %}
     {% set attr = options.attr|default({}) %}
     {% set attr = attr|merge({class: attr.class is defined ? attr.class : 'form-submit'}) %}

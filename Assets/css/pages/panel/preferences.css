@@ -88,24 +88,37 @@
         @apply flex items-center gap-2 text-sm text-gray-700 justify-center;
     }
 
-    .locale-list {
-        @apply flex flex-col gap-2 max-w-md;
+    .locale-grid {
+        @apply grid gap-3;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     }
 
-    .locale-option {
+    .locale-card {
         @apply flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-4 py-3
-        hover:border-gray-300 hover:bg-gray-50 transition;
+        hover:border-gray-300 hover:shadow-sm transition;
     }
 
-    .locale-option.active {
-        @apply border-gray-900;
+    .locale-card.active {
+        @apply border-gray-900 bg-gray-50;
     }
 
-    .locale-option-icon {
-        @apply shrink-0 text-gray-400;
+    .locale-card-code {
+        @apply shrink-0 flex items-center justify-center w-9 h-9 rounded-full bg-gray-100 text-gray-700 text-xs font-semibold tracking-wide;
     }
 
-    .locale-option-label {
+    .locale-card.active .locale-card-code {
+        @apply bg-gray-900 text-white;
+    }
+
+    .locale-card-label {
         @apply flex-1 text-sm font-medium text-gray-900;
+    }
+
+    .locale-card-check {
+        @apply shrink-0 text-gray-900;
+    }
+
+    .search-field {
+        @apply max-w-md;
     }
 }
