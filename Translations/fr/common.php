@@ -52,5 +52,6 @@ return [
     'ici.' => 'ici.',
     'Clair' => 'Clair',
     'Sombre' => 'Sombre',
-    'Rechercher une langue' => 'Rechercher une langue'
+    'Rechercher une langue' => 'Rechercher une langue',
+    'Tableau de bord' => 'Tableau de bord'
 ];

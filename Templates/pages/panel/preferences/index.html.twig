@@ -6,12 +6,13 @@
 {% import 'partials/macros/breadcrumb.macro.html.twig' as Breadcrumb %}
 
 {% set page = {
-    title: 'Préférences'
+    title: translate('Préférences')
 } %}
 
 {% block panelContent %}
     {{ Breadcrumb.breadcrumb([
-        {label: translate('Préférences')}
+        { label: translate('Tableau de bord'), route: 'panel.dashboard.index' },
+        { label: translate('Préférences') }
     ]) }}
 
     <div class="settings-grid">

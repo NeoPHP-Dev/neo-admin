@@ -53,10 +53,5 @@ return [
     'crée le template dans' => 'create the template in',
     'puis copie un bloc' => 'then copy a block',
     'ici.' => 'here.',
-    'Tableau de bord' => 'Tableau de bord',
-    'Général' => 'Général',
-    'NeoSQL' => 'NeoSQL',
-    'NeoPHP' => 'NeoPHP',
-    'Outils' => 'Outils',
-    'Paramètres' => 'Paramètres'
+    'Tableau de bord' => 'Dashboard'
 ];
