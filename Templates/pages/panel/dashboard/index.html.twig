@@ -1,7 +1,106 @@
 {# ./src/Neo_Admin/Templates/pages/panel/dashboard/index.html.twig #}
 
 {% extends "layouts/panel.layout.html.twig" %}
+{% import 'partials/macros/icon.macro.html.twig' as Icon %}
 
 {% block panelContent %}
-    [Panel/Dashboard]
+    <div class="callout">
+        <span class="callout-icon">{{ Icon.icon('info', {w: 5, h: 5}) }}</span>
+        <div class="callout-body">
+            <strong>{{ translate('Bienvenue sur NeoAdmin.') }}</strong>
+            {{ translate("Ce tableau de bord est un point de départ vide — voici comment étendre l'administration.") }}
+        </div>
+    </div>
+
+    <div class="doc-section">
+        <h2 class="doc-section-title">
+            {{ Icon.icon('layout-dashboard', {w: 5, h: 5}) }}
+            {{ translate('1. Ajouter un lien de navigation') }}
+        </h2>
+        <p class="doc-section-text">
+            {{ translate('Les liens de la sidebar sont centralisés dans') }} <code>src/Neo_Admin/Config/routes.config.php</code>.
+            {{ translate('Ajoute une entrée dans le groupe voulu (ou crée-en un nouveau) :') }}
+        </p>
+        {% verbatim %}
+        <pre class="code-block">'settings' => [
+    'label' => 'Paramètres',
+    'items' => [
+        [
+            'route' => 'panel.preference.index',
+            'icon' => 'settings',
+            'label' => 'Préférences',
+            'controller' => \Neo\Src\Neo_Admin\App\Controllers\Panel\PreferenceController::class,
+        ],
+    ],
+],</pre>
+        {% endverbatim %}
+        <p class="doc-section-text">
+            <code>route</code> {{ translate("doit correspondre au nom complet généré par") }} <code>#[MainRoute]</code> + <code>#[Route]</code>
+            ({{ translate('ex: préfixe') }} <code>panel.preference</code> + {{ translate('nom de méthode') }} <code>index</code> → <code>panel.preference.index</code>).
+            {{ translate("Laisse") }} <code>route: null</code> {{ translate("pour un lien pas encore implémenté — il restera visible sans jamais être filtré par les rôles.") }}
+        </p>
+    </div>
+
+    <div class="doc-section">
+        <h2 class="doc-section-title">
+            {{ Icon.icon('shield', {w: 5, h: 5}) }}
+            {{ translate("2. Restreindre l'accès par rôle") }}
+        </h2>
+        <p class="doc-section-text">
+            {{ translate('Ajoute') }} <code>#[IsGranted(roles: [...])]</code> {{ translate('sur la classe et/ou une méthode du contrôleur.') }}
+            {{ translate('Le lien de navigation correspondant se masque automatiquement pour les rôles non autorisés :') }}
+        </p>
+        {% verbatim %}
+        <pre class="code-block">#[IsGranted(roles: ['ROOT', 'ADMIN'])]
+#[MainRoute(path: '/administrators', name: 'panel.administrators')]
+final class AdministratorController extends AbstractController
+{
+    #[Route(path: '/', name: 'index', methods: ['GET'])]
+    public function index(): Response { ... }
+
+    #[IsGranted(roles: ['ROOT'])] // restriction supplémentaire, cumulée
+    #[Route(path: '/{id}/edit', name: 'edit', methods: ['GET', 'POST'])]
+    public function edit(int $id): Response { ... }
+}</pre>
+        {% endverbatim %}
+    </div>
+
+    <div class="doc-section">
+        <h2 class="doc-section-title">
+            {{ Icon.icon('code-xml', {w: 5, h: 5}) }}
+            {{ translate('3. Personnaliser ce Dashboard') }}
+        </h2>
+        <p class="doc-section-text">
+            {{ translate('Ce contenu est généré par') }}
+            <code>src/Neo_Admin/App/Controllers/Panel/DashboardController.php</code>, {{ translate('méthode') }} <code>index()</code>.
+            {{ translate('Passe tes propres données au template via') }} <code>render()</code> :
+        </p>
+        {% verbatim %}
+        <pre class="code-block">public function index(): Response
+{
+    return $this->render('pages/panel/dashboard/index.html.twig', [
+        'totalClients' => $this->clientRepository->count(),
+        'recentInvoices' => $this->invoiceRepository->findAll(5),
+    ]);
+}</pre>
+        {% endverbatim %}
+        <p class="doc-section-text">
+            {{ translate('Puis affiche-les dans') }} <code>index.html.twig</code> {{ translate('avec') }} <code>{{ '{{ totalClients }}' }}</code>, etc.
+            {{ translate('Remplace simplement le bloc') }} <code>{% verbatim %}{% block panelContent %}{% endverbatim %}</code> {{ translate('par ton propre contenu (cartes de stats, tableaux, graphiques...).') }}
+        </p>
+    </div>
+
+    <div class="doc-section">
+        <h2 class="doc-section-title">
+            {{ Icon.icon('puzzle', {w: 5, h: 5}) }}
+            {{ translate('Autres briques utiles déjà en place') }}
+        </h2>
+        <p class="doc-section-text">
+            • <code>{{ '{{ Icon.icon(\'nom-lucide\', {w: 5, h: 5}) }}' }}</code> — {{ translate('icônes (import') }} <code>partials/macros/icon.macro.html.twig</code>)<br>
+            • <code>{{ '{{ Badge.badge(\'Actif\', {color: \'#15803d\', background: \'#dcfce7\'}) }}' }}</code> — {{ translate('badges colorés (import') }} <code>partials/macros/badge.macro.html.twig</code>)<br>
+            • <code>{{ '{{ Form.field(form, \'email\', {icon: \'user\'}) }}' }}</code> — {{ translate('champs de formulaire liés au système Form (import') }} <code>partials/macros/form.macro.html.twig</code>)<br>
+            • <code>{{ '{{ getAdministrator() }}' }}</code> — {{ translate("profil de l'admin connecté, mis en cache (username, avatar, initiales, rôle)") }}<br>
+            • <code>{{ '{{ translate(\'Ma clé\') }}' }}</code> — {{ translate('traduction via') }} <code>TranslationManager</code>
+        </p>
+    </div>
 {% endblock %}

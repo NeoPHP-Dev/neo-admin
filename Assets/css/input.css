@@ -2,6 +2,8 @@
 
 @import "./components/form.css";
 @import "./components/badge.css";
+@import "./components/callout.css";
+@import "./components/code-block.css";
 
 @import "./pages/auth/login.css";
 @import "./pages/panel/panel.css";
