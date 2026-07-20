@@ -3,20 +3,23 @@ declare(strict_types=1);
 
 namespace Neo\Src\Neo_Admin\App\Extension;
 
-use Neo\Core\Routing\Router;
+use Neo\Core\Extension\Attribute\Extension;
+use Neo\Core\Extension\Enum\ExtensionTypeEnum;
+use Neo\Core\Routing\RouterManager;
 use Neo\Core\Security\Middleware\MiddlewareManager;
 use Neo\Core\Translation\TranslationManager;
-use Neo\Core\Utils\Config\Config;
+use Neo\Core\Utils\Config\ConfigManager;
 use Neo\Core\View\Interface\TwigExtensionInterface;
 
+#[Extension(type: ExtensionTypeEnum::VIEW)]
 final class NavigationViewExtension implements TwigExtensionInterface
 {
     private ?array $navigationItems = null;
 
     public function __construct(
-        protected Config $config,
+        protected ConfigManager $config,
         protected TranslationManager $translator,
-        protected Router $router,
+        protected RouterManager $router,
         protected MiddlewareManager $middlewareManager,
     ) {}
 

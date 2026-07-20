@@ -10,9 +10,9 @@ return [
     'password'   => 'password',
     'guard'      => 'session',
     'role'       => [
-        'model'       => Neo\Src\Neo_Admin\Database\Model\AdministratorRole::class,
-        'foreign_key' => 'role_id',
-        'field'       => 'label',
+        'model'       => '',
+        'foreign_key' => '',
+        'field'       => '',
     ],
     'options' => [
         'login'      => '',

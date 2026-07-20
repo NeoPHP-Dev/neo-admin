@@ -4,7 +4,9 @@ declare(strict_types=1);
 namespace Neo\Src\Neo_Admin;
 
 use Neo\Core\DI\Container;
+use Neo\Core\Http\Request\Request;
 use Neo\Core\Module\Abstract\AbstractModule;
+use Neo\Core\Module\Interface\ModuleInterface;
 use Neo\Core\Routing\Router;
 use Neo\Core\Security\Auth\AuthManager;
 use Neo\Core\Security\Middleware\MiddlewareManager;
@@ -17,30 +19,18 @@ use Neo\Core\Utils\Cache\CacheModule;
 use Neo\Src\Neo_Admin\App\Extension\AsideViewExtension;
 use Neo\Src\Neo_Admin\App\Extension\NavigationViewExtension;
 
-final class Neo_AdminModule extends AbstractModule
+final class Neo_AdminModule implements ModuleInterface
 {
     public function dependencies(): array
     {
-        return [
-            // ClassModule::class,
-        ];
+        return [];
     }
 
     public function register(Container $container): void
+    {}
+
+    public function init(Container $container): object
     {
-        $container->set(AsideViewExtension::class, fn(Container $c) => new AsideViewExtension(
-            $c->get(AuthManager::class),
-            $c->get(Cache::class),
-        ));
-        $container->tag(AsideViewExtension::class, 'twig.extension');
-
-
-        $container->set(NavigationViewExtension::class, fn(Container $c) => new NavigationViewExtension(
-            $c->get(Config::class),
-            $c->get(TranslationManager::class),
-            $c->get(Router::class),
-            $c->get(MiddlewareManager::class),
-        ));
-        $container->tag(NavigationViewExtension::class, 'twig.extension');
+        return $this;
     }
 }

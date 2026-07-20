@@ -3,10 +3,14 @@ declare(strict_types=1);
 
 namespace Neo\Src\Neo_Admin\App\Extension;
 
+use Neo\Core\Extension\Attribute\Extension;
+use Neo\Core\Extension\Enum\ExtensionTypeEnum;
 use Neo\Core\Security\Auth\AuthManager;
 use Neo\Core\Utils\Cache\Cache;
+use Neo\Core\Utils\Cache\CacheManager;
 use Neo\Core\View\Interface\TwigExtensionInterface;
 
+#[Extension(type: ExtensionTypeEnum::VIEW)]
 final class AsideViewExtension implements TwigExtensionInterface
 {
     private const int TTL = 300;
@@ -15,7 +19,7 @@ final class AsideViewExtension implements TwigExtensionInterface
 
     public function __construct(
         private readonly AuthManager $auth,
-        private readonly Cache $cache,
+        private readonly CacheManager $cache,
     ) {}
 
     public function getFunctions(): array
