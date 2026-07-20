@@ -55,5 +55,7 @@ return [
     'Rechercher une langue' => 'Rechercher une langue',
     'Tableau de bord' => 'Tableau de bord',
     'Général' => 'Général',
-    'Paramètres' => 'Paramètres'
+    'Paramètres' => 'Paramètres',
+    'Projets' => 'Projets',
+    '{PROJET NAME}' => '{PROJET NAME}'
 ];
